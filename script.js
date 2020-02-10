@@ -1,4 +1,4 @@
-let card = [];
+let cards = [];
 let startTime;
 let timer;
 let backTimer;
@@ -9,9 +9,10 @@ let countUnit = 0;
 window.onload = function() {
  let arr = [];
  
- for (let i = 0; i < 10; i++) {
+ for (i = 0; i < 10; i++) {
   arr.push(i);
   arr.push(i);
+  //arr = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9];
  }
  
  shuffle(arr);
@@ -25,12 +26,12 @@ window.onload = function() {
   div.number = arr[i];
   div.innerHTML = "";
   div.onclick = turn;
-  panal.appendChild(div);
+  panel.appendChild(div);
   cards.push(div);
  }
  
  startTime = new Date();
- startTImer();
+ startTimer();
 }
  
  function shuffle(arr) {
