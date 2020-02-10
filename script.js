@@ -31,6 +31,7 @@ window.onload = function() {
  
  startTime = new Date();
  startTImer();
+}
  
  function shuffle(arr) {
   let n = arr.length;
