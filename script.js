@@ -6,7 +6,14 @@ let flgFirst = true;
 let cardFirst;
 let countUnit = 0;
 
-window.onload = function() {
+function startGame() {
+ createCard();
+ turn(e);
+ startTimer();
+}
+
+
+function createCard() {
  let arr = [];
  
  for (i = 0; i < 10; i++) {
@@ -30,9 +37,6 @@ window.onload = function() {
   cards.push(div);
  }
  
- startTime = new Date();
- startTimer();
-}
  
  function shuffle(arr) {
   let n = arr.length;
@@ -48,6 +52,7 @@ window.onload = function() {
   return arr;
 }
 
+ 
 function turn(e) {
  let div = e.target;
  
@@ -88,7 +93,9 @@ function turn(e) {
  }
 }
 
+ 
 function startTimer() {
+ startTime = new Date();
  timer = setInterval(showSecond, 1000);
 }
 
