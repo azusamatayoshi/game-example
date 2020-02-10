@@ -6,14 +6,7 @@ let flgFirst = true;
 let cardFirst;
 let countUnit = 0;
 
-function startGame() {
- createCard();
- turn(e);
- startTimer();
-}
-
-
-function createCard() {
+window.onload = function() {
  let arr = [];
  
  for (i = 0; i < 10; i++) {
@@ -37,14 +30,13 @@ function createCard() {
   cards.push(div);
  }
  
- 
+ //シャッフル
  function shuffle(arr) {
   let n = arr.length;
   let temp, i;
   
   while(n) {
-   i = Math.floor(Math.random() * n);
-   n -= n;
+   i = Math.floor(Math.random() * n--);
    temp = arr[n];
    arr[n] = arr[i];
    arr[i] = temp;
@@ -52,16 +44,16 @@ function createCard() {
   return arr;
 }
 
- 
+ //カードをクリック
 function turn(e) {
  let div = e.target;
  
- if(backTimer) return;
- if(div.innerHTML == "") {
-  div.className = "card";
-  div.innerHTML = div.number;
+ if(backTimer) return; // めくられている間はreturn
+ if(div.innerHTML == "") { //裏向きのカードの場合
+  div.className = "card";　//div class = "card"
+  div.innerHTML = div.number; //数字を表示
  }else{
-  return;
+  return;　//数字が表示されている場合はreturn
  }
  
  if(flgFirst) {
