@@ -2,7 +2,7 @@ function startGame() {
   myGameArea.start();
 }
 
-const myGameArea = {
+let myGameArea = {
   canvas : document.createElement("canvas"),
   start : function() {
     this.canvas.width = 480;
