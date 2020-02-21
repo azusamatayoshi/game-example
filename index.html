@@ -9,10 +9,10 @@
   <body onload="startGame()">
     
     <div class="btn">
-      <button onclick="moveup()">UP</button><br>
-      <button onclick="moveleft()">LEFT</button>
-      <button onclick="moveright()">RIGHT</button><br>
-      <button onclick="movedown()">DOWN</button>
+      <button ontouchstart="moveup()" ontouchend="stopMove()">UP</button><br>
+      <button ontouchstart="moveleft()" ontouchend="stopMove()">LEFT</button>
+      <button ontouchstart="moveright()" ontouchend="stopMove()">RIGHT</button><br>
+      <button ontouchstart="movedown()" ontouchend="stopMove()">DOWN</button>
     </div>
     
     <script src="script.js"></script>
