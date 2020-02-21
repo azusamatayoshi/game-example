@@ -18,6 +18,9 @@ let myGameArea = {
   },
   clear : function() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  },
+  gameOver : function() {
+    clearInterval(this.interval);
   }
 }
 
@@ -37,13 +40,33 @@ function component(width, height, color, x, y) {
     this.x += this.speedX;
     this.y += this.speedY;
   }
+  this.crashWith = function(otherobj) {
+    let myleft = this.x;
+    let myright = this.x + (this.width);
+    let mytop = this.y;
+    let mybottom = this.y + (this.height);
+    let otherleft = otherobj.x;
+    let otherright = otherobj.x + (otherobj.width);
+    let othertop = otherobj.y;
+    let otherbottom = otherobj.y + (otherobj.height);
+    let crash = true;
+    if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+      crash = false;
+    }
+    return crash;
+  }
+    
 }
 
 function updateGameArea() {
+  if (myGamePiece.crashWith(myObstacle)) {
+    myGameArea.gameOver();
+  }else{
   myGameArea.clear();
   myObstacle.update();
   myGamePiece.newPos();
   myGamePiece.update();
+  }
 }
   
 function moveup() {
