@@ -26,7 +26,7 @@ let myGameArea = {
 }
 
 function everyInterval(n) {
-  if ((myGameArea.frameNo / n % 1 == 0) {
+  if ((myGameArea.frameNo / n) % 1 == 0) {
       return true;}
     return false;
   }
@@ -74,7 +74,7 @@ function updateGameArea() {
     }
   }
   myGameArea.clear();
-  myObstacle.x += -1;
+  myGameArea.frameNo += 1;
   if(myGameArea.frameNo == 1 || everyInterval(150)) {
     x = myGameArea.canvas.width;
     minHeight = 20;
@@ -88,7 +88,7 @@ function updateGameArea() {
   }
   for( i = 0; i < myObstacles.length; i += 1) {
     myObstacle[i].x += -1;
-  myObstacle[i].update();
+    myObstacle[i].update();
   }
   myGamePiece.newPos();
   myGamePiece.update();
