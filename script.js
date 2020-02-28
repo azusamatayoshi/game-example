@@ -66,7 +66,7 @@ function component(width, height, color, x, y) {
 }
 
 function updateGameArea() {
-  let x, y;
+  let x, height, gap, minHeight, maxHeight, minGap, maxGap;
   for(i = 0; i < myObstacles.length; i += 1) {
     if (myGamePiece.crashWith(myObstacle)) {
       myGameArea.gameOver();
@@ -77,8 +77,14 @@ function updateGameArea() {
   myObstacle.x += -1;
   if(myGameArea.frameNo == 1 || everyInterval(150)) {
     x = myGameArea.canvas.width;
-    y = myGameArea.canvas.height - 200;
-    myObstacle.push(new component(10, 200, "green", x, y));
+    minHeight = 20;
+    maxHeight = 200;
+    height = Math.floor(Math.random() * (maxHeight-minHeight+1)+minHeight);
+    minGap = 50;
+    maxGap = 200;
+    gap = Math.floor(Math.random() * (maxGap-minGap+1)+minGap);
+    myObstacle.push(new component(10, height, "green", x, 0));
+    myObstacle.push(new component(10, x-height-gap, "green", x, height+gap));
   }
   for( i = 0; i < myObstacles.length; i += 1) {
     myObstacle[i].x += -1;
