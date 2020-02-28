@@ -16,15 +16,15 @@ let myGameArea = {
     document.body.insertBefore(this.canvas, document.body.childNodes[0]);
     this.frameNo =0;
     this.interval = setInterval(updateGameArea, 20);
-  },
+ /* },
   clear : function() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   },
   gameOver : function() {
-    clearInterval(this.interval);
+    clearInterval(this.interval);*/
   }
 }
-
+/*
 function everyInterval(n) {
   if ((myGameArea.frameNo / n) % 1 == 0) {
       return true;}
