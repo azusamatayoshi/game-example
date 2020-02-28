@@ -14,6 +14,7 @@ let myGameArea = {
     this.canvas.height = 270;
     this.context = this.canvas.getContext("2d");
     document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+    this.frameNo =0;
     this.interval = setInterval(updateGameArea, 20);
   },
   clear : function() {
@@ -23,6 +24,12 @@ let myGameArea = {
     clearInterval(this.interval);
   }
 }
+
+function everyInterval(n) {
+  if ((myGameArea.frameNo / n % 1 == 0) {
+      return true;}
+    return false;
+      }
 
 function component(width, height, color, x, y) {
   this.width = width;
@@ -63,6 +70,7 @@ function updateGameArea() {
     myGameArea.gameOver();
   }else{
   myGameArea.clear();
+  myObstacle.x += -1;
   myObstacle.update();
   myGamePiece.newPos();
   myGamePiece.update();
