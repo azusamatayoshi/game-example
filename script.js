@@ -1,5 +1,5 @@
 let myGamePiece;
-let myObstacle;
+let myObstacle [];
 
 function startGame() {
   myGamePiece = new component(30, 30, "red", 10, 120);
@@ -29,7 +29,7 @@ function everyInterval(n) {
   if ((myGameArea.frameNo / n % 1 == 0) {
       return true;}
     return false;
-      }
+  }
 
 function component(width, height, color, x, y) {
   this.width = width;
@@ -66,12 +66,24 @@ function component(width, height, color, x, y) {
 }
 
 function updateGameArea() {
-  if (myGamePiece.crashWith(myObstacle)) {
-    myGameArea.gameOver();
-  }else{
+  let x, y;
+  for(i = 0; i < myObstacles.length; i += 1) {
+    if (myGamePiece.crashWith(myObstacle)) {
+      myGameArea.gameOver();
+      return;
+    }
+  }
   myGameArea.clear();
   myObstacle.x += -1;
-  myObstacle.update();
+  if(myGameArea.frameNo == 1 || everyInterval(150)) {
+    x = myGameArea.canvas.width;
+    y = myGameArea.canvas.height - 200;
+    myObstacle.push(new component(10, 200, "green", x, y));
+  }
+  for( i = 0; i < myObstacles.length; i += 1) {
+    myObstacle[i].x += -1;
+  myObstacle[i].update();
+  }
   myGamePiece.newPos();
   myGamePiece.update();
   }
