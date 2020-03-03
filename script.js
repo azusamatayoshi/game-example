@@ -92,7 +92,7 @@ function updateGameArea() {
   }
   myGamePiece.newPos();
   myGamePiece.update();
-  }
+  
 }
   
 function moveup() {
