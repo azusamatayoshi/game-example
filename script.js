@@ -68,7 +68,7 @@ function component(width, height, color, x, y) {
 function updateGameArea() {
   let x, height, gap, minHeight, maxHeight, minGap, maxGap;
   for(i = 0; i < myObstacles.length; i += 1) {
-    if (myGamePiece.crashWith(myObstacle)) {
+    if (myGamePiece.crashWith(myObstacles[i])) {
       myGameArea.gameOver();
       return;
     }
