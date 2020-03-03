@@ -1,6 +1,9 @@
 canvas {
   border: 1px solid gray;
   background-color: silver;
+  
+  max-width: 100%;
+  height: auto;
 }
 
 .btn {
