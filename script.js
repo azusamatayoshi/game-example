@@ -1,5 +1,5 @@
 let myGamePiece;
-let myObstacles [];
+let myObstacles = [];
 
 function startGame() {
   myGamePiece = new component(30, 30, "red", 10, 120);
